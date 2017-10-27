@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-    redirect_to new_session_path unless !!current_user
+    redirect_to root_path unless !!current_user
   end
 
   def logged_in?

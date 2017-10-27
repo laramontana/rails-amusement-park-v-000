@@ -11,4 +11,6 @@ class User < ActiveRecord::Base
       "sad"
     end
   end
+
+
 end
