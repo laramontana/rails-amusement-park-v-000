@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-
   before_action :set_user, only: [:show]
+  before_action :require_login, only: [:show]
+
 
   def welcome
   end
@@ -12,6 +13,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
       render :new
@@ -20,7 +22,6 @@ class UsersController < ApplicationController
 
   def show
   end
-
 
   private
 
