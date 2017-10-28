@@ -21,10 +21,11 @@ class UsersController < ApplicationController
   end
 
   def show
+
   end
 
   def update
-    
+
 
     # when the user is tall enough and has enough tickets, clicking on 'Go on this ride' displays a thank you message
     # when the user is too short, clicking on 'Go on this ride' displays a sorry message

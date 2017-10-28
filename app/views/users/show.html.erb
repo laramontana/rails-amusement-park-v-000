@@ -13,7 +13,6 @@
 
 <% if @user.admin %>
   <%= link_to "See attractions", user_attractions_path(@user)%>
-  <%= link_to "See all attractions", attractions_path%>
 <% else %>
   <%= link_to "See attractions", attractions_path%>
 <% end %>

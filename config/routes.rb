@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :attractions
   end
   resources :attractions
+  post 'rides/new' => 'rides#new'
+
 
 
 end

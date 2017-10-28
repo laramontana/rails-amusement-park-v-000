@@ -1,3 +1,11 @@
-<%= form_for @attraction, url: user_path(current_user), method: :patch do |f|%>
-     <%= f.submit "Go on this ride" %>
+<h3>Name: <%= @attraction.name %></h3>
+<h3>Tickets: <%= @attraction.tickets %></h3>
+<h3>Nausea Rating: <%= @attraction.nausea_rating %></h3>
+<h3>Happiness Rating: <%= @attraction.happiness_rating %></h3>
+<h3>Min Height: <%= @attraction.min_height %></h3>
+
+<%= form_for @ride, url: rides_new_path, method: :post do |f|%>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :attraction_id, value: @attraction.id %>
+    <%= f.submit "Go on this ride" %>
 <% end %>

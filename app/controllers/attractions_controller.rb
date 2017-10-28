@@ -19,11 +19,13 @@ class AttractionsController < ApplicationController
       @user = User.find_by(id: params[:user_id])
       if @user.admin
         @attractions = @user.attractions.find_by(id: params[:id])
+        @ride = @attraction.rides.build
       else
         redirect_to user_path(@user)
       end
     else
       @attraction = Attraction.find_by(id: params[:id])
+      @ride = @attraction.rides.build
     end
   end
 
