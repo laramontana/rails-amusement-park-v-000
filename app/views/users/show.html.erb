@@ -11,4 +11,8 @@
 <%= link_to "Edit", edit_user_path(@user) %>
 <%= link_to "Log Out", logout_path%>
 
-<!-- <%= link_to "See attractions" %> -->
+<% if @user.admin %>
+  <%= link_to "See attractions", user_attractions_path(@user)%>
+<% else %>
+  <%= link_to "See attractions", attractions_path%>
+<% end %>
