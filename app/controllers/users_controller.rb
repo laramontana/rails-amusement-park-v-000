@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update]
+  before_action :set_user, only: [:show]
   before_action :require_login, only: [:show]
 
 
@@ -23,15 +23,6 @@ class UsersController < ApplicationController
   def show
     @message = params[:message] if params[:message]
     @message ||= false
-  end
-
-  def update
-
-
-    # when the user is tall enough and has enough tickets, clicking on 'Go on this ride' displays a thank you message
-    # when the user is too short, clicking on 'Go on this ride' displays a sorry message
-    # when the user doesn't have enough tickets, clicking on 'Go on this ride' displays a sorry message
-    # when the user is too short and doesn't have enough tickets, clicking on 'Go on this ride' displays a detailed sorry message
   end
 
   private
