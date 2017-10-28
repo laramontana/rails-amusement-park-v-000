@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
   def new
     if logged_in?
-      redirect_to user_path(@user)
+      redirect_to user_path(session[:user_id])
     else
       @user = User.new
       render :new
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      redirect_to new_session_path
+      redirect_to signin_path
     end
   end
 

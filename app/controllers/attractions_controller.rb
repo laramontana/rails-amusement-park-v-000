@@ -1,5 +1,5 @@
 class AttractionsController < ApplicationController
-  before_action :require_login, only: [:show, :index]
+  before_action :require_login, only: [:show, :index, :edit, :new]
 
   def index
     if params[:user_id]
@@ -27,6 +27,13 @@ class AttractionsController < ApplicationController
       @attraction = Attraction.find_by(id: params[:id])
       @ride = @attraction.rides.build
     end
+  end
+
+  def new
+    @attraction = Attraction.new
+  end
+
+  def create
   end
 
 end
