@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show]
   before_action :require_login, only: [:show]
 
-
   def welcome
   end
 

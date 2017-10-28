@@ -1,34 +1,13 @@
 class AttractionsController < ApplicationController
   before_action :require_login, only: [:show, :index, :edit, :new]
-  before_action :set_attraction, only: [:show, :edit]
-
+  before_action :set_attraction, only: [:show, :edit, :update]
 
   def index
-    if params[:user_id]
-      @user = User.find_by(id: params[:user_id])
-      if @user.admin
-        @attractions = @user.attractions
-      else
-        redirect_to user_path(@user)
-      end
-    else
-      @attractions = Attraction.all
-    end
+    @attractions = Attraction.all
   end
 
   def show
-    if params[:user_id]
-      @user = User.find_by(id: params[:user_id])
-      if @user.admin
-        @attractions = @user.attractions.find_by(id: params[:id])
-        @ride = @attraction.rides.build
-      else
-        redirect_to user_path(@user)
-      end
-    else
-      @attraction = Attraction.find_by(id: params[:id])
-      @ride = @attraction.rides.build
-    end
+    @ride = Ride.new
   end
 
   def new
