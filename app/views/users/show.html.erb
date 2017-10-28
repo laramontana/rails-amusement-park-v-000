@@ -2,6 +2,10 @@
   <h3>ADMIN</h3>
 <% end %>
 
+<% if @message %>
+  <%= @message %>
+<% end %>
+
 
 <h3>Name: <%= @user.name %></h3>
 <h3>Tickets: <%= @user.tickets %></h3>
